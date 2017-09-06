@@ -1,0 +1,36 @@
+
+$home: #ff9900 
+$news: #77ff66
+$class: #7BAFC2
+$lab:  #3b5997
+
+
+$list-colors: $home, $news, $class, $lab;
+
+li {
+  float: left;
+  height: 48px;
+  list-style: none;
+  width: 100%;    
+}
+@for $i from 1 through length($list-colors) {
+  li:nth-of-type(#{$i}) {
+    background: nth($list-colours, $i);
+  } 
+}
+
+$menu: (home, $home),
+        (news, $news),
+        (class, $class),
+        (lab, $lab);
+	
+ 
+  @each $listitem, $color in $menu { }
+  .menu-link--#{$listitem} {
+    background-color: $color;
+    &:focus, 
+    &:hover {
+      background-color: darken($color,10%);
+    }    
+  }
+}
